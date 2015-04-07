@@ -8,17 +8,27 @@
 
 import UIKit
 
-class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do initial setup
         self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        // Why not do it with placeholder text?
+        self.topTextField.text = "TOP"
+        self.topTextField.textAlignment = NSTextAlignment.Center
+        self.topTextField.delegate = self
+        self.bottomTextField.text = "BOTTOM"
+        self.bottomTextField.textAlignment = NSTextAlignment.Center
+        self.bottomTextField.delegate = self
     }
 
 
@@ -49,6 +59,22 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: UITextFieldDelegate methods
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // FIXME: what if the user actually wants TOP or BOTTOM to be shown?
+        // Using placeholder text in the initial setup would fix this
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

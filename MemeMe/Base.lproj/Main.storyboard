@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,8 +36,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdA-7P-mi9">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="389" id="YC2-if-mtw"/>
-                                    <constraint firstAttribute="width" constant="400" id="a6f-Gi-BHg"/>
+                                    <constraint firstAttribute="height" constant="389" id="YC2-if-mtw">
+                                        <variation key="widthClass=compact" constant="300"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="400" id="a6f-Gi-BHg">
+                                        <variation key="widthClass=compact" constant="300"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -51,12 +56,58 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyW-7M-Ddy">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ClR-GE-6w9"/>
+                                    <constraint firstAttribute="width" constant="368" id="zqN-Uo-pYx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ClR-GE-6w9"/>
+                                        <exclude reference="zqN-Uo-pYx"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ClR-GE-6w9"/>
+                                        <include reference="zqN-Uo-pYx"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-uw-2Hg">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="368" id="X8e-cO-PcJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="jM8-3K-BeI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X8e-cO-PcJ"/>
+                                        <exclude reference="jM8-3K-BeI"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="X8e-cO-PcJ"/>
+                                        <include reference="jM8-3K-BeI"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hpk-uw-2Hg" secondAttribute="bottom" constant="58" id="0dS-hn-RGG"/>
                             <constraint firstAttribute="centerX" secondItem="hdA-7P-mi9" secondAttribute="centerX" id="1ez-vk-zss"/>
-                            <constraint firstItem="bdL-sB-SBU" firstAttribute="top" secondItem="hdA-7P-mi9" secondAttribute="bottom" constant="120" id="BaP-oA-ciM"/>
+                            <constraint firstAttribute="centerX" secondItem="qyW-7M-Ddy" secondAttribute="centerX" constant="-0.5" id="2IY-zx-7Zo"/>
+                            <constraint firstAttribute="centerX" secondItem="hpk-uw-2Hg" secondAttribute="centerX" constant="-0.5" id="KJi-RN-OiF"/>
+                            <constraint firstItem="qyW-7M-Ddy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="NKE-BT-cj9"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bdL-sB-SBU" secondAttribute="bottom" id="SRs-pP-l3F"/>
+                            <constraint firstAttribute="centerY" secondItem="hdA-7P-mi9" secondAttribute="centerY" id="W7k-b8-fog"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdL-sB-SBU" secondAttribute="trailing" constant="-16" id="nr4-nf-tU2"/>
                             <constraint firstItem="bdL-sB-SBU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="v1U-jJ-0aN"/>
                         </constraints>
@@ -64,12 +115,18 @@
                             <mask key="subviews">
                                 <exclude reference="bdL-sB-SBU"/>
                                 <exclude reference="hdA-7P-mi9"/>
+                                <exclude reference="qyW-7M-Ddy"/>
+                                <exclude reference="hpk-uw-2Hg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2IY-zx-7Zo"/>
+                                <exclude reference="NKE-BT-cj9"/>
                                 <exclude reference="1ez-vk-zss"/>
-                                <exclude reference="BaP-oA-ciM"/>
+                                <exclude reference="W7k-b8-fog"/>
+                                <exclude reference="KJi-RN-OiF"/>
                                 <exclude reference="nr4-nf-tU2"/>
                                 <exclude reference="v1U-jJ-0aN"/>
+                                <exclude reference="0dS-hn-RGG"/>
                                 <exclude reference="SRs-pP-l3F"/>
                             </mask>
                         </variation>
@@ -77,19 +134,27 @@
                             <mask key="subviews">
                                 <include reference="bdL-sB-SBU"/>
                                 <include reference="hdA-7P-mi9"/>
+                                <include reference="qyW-7M-Ddy"/>
+                                <include reference="hpk-uw-2Hg"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2IY-zx-7Zo"/>
+                                <include reference="NKE-BT-cj9"/>
                                 <include reference="1ez-vk-zss"/>
-                                <include reference="BaP-oA-ciM"/>
+                                <include reference="W7k-b8-fog"/>
+                                <include reference="KJi-RN-OiF"/>
                                 <include reference="nr4-nf-tU2"/>
                                 <include reference="v1U-jJ-0aN"/>
+                                <include reference="0dS-hn-RGG"/>
                                 <include reference="SRs-pP-l3F"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="hpk-uw-2Hg" id="C2A-aF-MNA"/>
                         <outlet property="cameraButton" destination="Sdz-Gz-Xny" id="l2k-Tn-Dah"/>
                         <outlet property="imagePickerView" destination="hdA-7P-mi9" id="2aU-a6-kyf"/>
+                        <outlet property="topTextField" destination="qyW-7M-Ddy" id="DMw-M2-s24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
