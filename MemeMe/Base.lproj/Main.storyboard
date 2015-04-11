@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="width" constant="368" id="zqN-Uo-pYx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="ClR-GE-6w9"/>
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="height" constant="30" id="jM8-3K-BeI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="X8e-cO-PcJ"/>
@@ -119,15 +119,15 @@
                                 <exclude reference="hpk-uw-2Hg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2IY-zx-7Zo"/>
-                                <exclude reference="NKE-BT-cj9"/>
-                                <exclude reference="1ez-vk-zss"/>
-                                <exclude reference="W7k-b8-fog"/>
-                                <exclude reference="KJi-RN-OiF"/>
-                                <exclude reference="nr4-nf-tU2"/>
-                                <exclude reference="v1U-jJ-0aN"/>
                                 <exclude reference="0dS-hn-RGG"/>
                                 <exclude reference="SRs-pP-l3F"/>
+                                <exclude reference="KJi-RN-OiF"/>
+                                <exclude reference="2IY-zx-7Zo"/>
+                                <exclude reference="NKE-BT-cj9"/>
+                                <exclude reference="nr4-nf-tU2"/>
+                                <exclude reference="v1U-jJ-0aN"/>
+                                <exclude reference="1ez-vk-zss"/>
+                                <exclude reference="W7k-b8-fog"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -138,15 +138,15 @@
                                 <include reference="hpk-uw-2Hg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2IY-zx-7Zo"/>
-                                <include reference="NKE-BT-cj9"/>
-                                <include reference="1ez-vk-zss"/>
-                                <include reference="W7k-b8-fog"/>
-                                <include reference="KJi-RN-OiF"/>
-                                <include reference="nr4-nf-tU2"/>
-                                <include reference="v1U-jJ-0aN"/>
                                 <include reference="0dS-hn-RGG"/>
                                 <include reference="SRs-pP-l3F"/>
+                                <include reference="KJi-RN-OiF"/>
+                                <include reference="2IY-zx-7Zo"/>
+                                <include reference="NKE-BT-cj9"/>
+                                <include reference="nr4-nf-tU2"/>
+                                <include reference="v1U-jJ-0aN"/>
+                                <include reference="1ez-vk-zss"/>
+                                <include reference="W7k-b8-fog"/>
                             </mask>
                         </variation>
                     </view>

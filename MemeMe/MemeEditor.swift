@@ -22,6 +22,17 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
 
         // Do initial setup
         self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        // Set text attributes
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -2.0
+        ]
+        self.topTextField.defaultTextAttributes = memeTextAttributes
+        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+
         // Why not do it with placeholder text?
         self.topTextField.text = "TOP"
         self.topTextField.textAlignment = NSTextAlignment.Center
@@ -29,6 +40,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.bottomTextField.text = "BOTTOM"
         self.bottomTextField.textAlignment = NSTextAlignment.Center
         self.bottomTextField.delegate = self
+        
     }
 
 
