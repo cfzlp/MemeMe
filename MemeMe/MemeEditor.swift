@@ -8,6 +8,8 @@
 
 import UIKit
 
+var sharedMemes: [Meme] = []
+
 class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -67,7 +69,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func saveMeme() {
         let memedImage = generateMemedImage()
-        var meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: imageView.image, memedImage: memedImage)
+        var meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: imageView.image!, memedImage: memedImage)
+        sharedMemes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {

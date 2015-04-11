@@ -86,8 +86,7 @@
                                         <exclude reference="zqN-Uo-pYx"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="17" y="28" width="368" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="ClR-GE-6w9"/>
                                         <include reference="zqN-Uo-pYx"/>
