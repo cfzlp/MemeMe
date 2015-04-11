@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fMe-Xg-Tve">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="KjZ-Z8-tgG">
+            <objects>
+                <navigationController id="fMe-Xg-Tve" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NxA-2f-F4T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Vlp-Cl-ngd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8PP-bT-G4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378" y="337"/>
+        </scene>
         <!--Meme Editor-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -70,7 +86,8 @@
                                         <exclude reference="zqN-Uo-pYx"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="17" y="28" width="368" height="30"/>
                                     <mask key="constraints">
                                         <include reference="ClR-GE-6w9"/>
                                         <include reference="zqN-Uo-pYx"/>
@@ -150,10 +167,19 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="drc-WU-kzy">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="K4k-Zc-oZk">
+                            <connections>
+                                <action selector="shareMeme:" destination="vXZ-lx-hvc" id="vTc-eW-Y2r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="hpk-uw-2Hg" id="C2A-aF-MNA"/>
                         <outlet property="cameraButton" destination="Sdz-Gz-Xny" id="l2k-Tn-Dah"/>
-                        <outlet property="imagePickerView" destination="hdA-7P-mi9" id="2aU-a6-kyf"/>
+                        <outlet property="imageView" destination="hdA-7P-mi9" id="JP4-Q2-dkI"/>
+                        <outlet property="shareMemeButton" destination="K4k-Zc-oZk" id="Lju-Ky-gdN"/>
+                        <outlet property="toolbar" destination="bdL-sB-SBU" id="A69-Hg-KR9"/>
                         <outlet property="topTextField" destination="qyW-7M-Ddy" id="DMw-M2-s24"/>
                     </connections>
                 </viewController>
