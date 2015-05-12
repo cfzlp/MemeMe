@@ -8,8 +8,6 @@
 
 import UIKit
 
-var sharedMemes: [Meme] = []
-
 class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -47,6 +45,16 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
+    }
+
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -63,14 +71,29 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     @IBAction func shareMeme(sender: UIBarButtonItem) {
         let imageToShare = generateMemedImage()
+        
+        // instantiate, configure and present an activity VC to share the meme
         let activityVC = UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
-        self.presentViewController(activityVC, animated: true, completion: saveMeme)
+        activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in
+            if completed {
+                self.saveMeme()
+            }
+            activityVC.dismissViewControllerAnimated(true, completion: nil)
+        }
+        self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
     func saveMeme() {
+        // Create meme
         let memedImage = generateMemedImage()
         var meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: imageView.image!, memedImage: memedImage)
-        sharedMemes.append(meme)
+        
+        // Add meme to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
+        NSLog("Meme has been added to global array")
     }
     
     func generateMemedImage() -> UIImage {
@@ -119,16 +142,6 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     // MARK: accommodate keyboard methods
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
-    }
-    
     func subscribeToKeyboardNotifications() {
         // We want to know when the keyboard will show
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:"    , name: UIKeyboardWillShowNotification, object: nil)
@@ -139,10 +152,14 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        NSLog("Received UIKeyboardWillShowNotification notification.")
+        if bottomTextField.editing {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
 
     func keyboardWillHide(notification: NSNotification) {
