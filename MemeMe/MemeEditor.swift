@@ -114,6 +114,10 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         return memedImage
     }
     
+    @IBAction func cancelMeme() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: UIImagePickerControllerDelegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {

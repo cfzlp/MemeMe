@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BPI-Vm-SSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BPI-Vm-SSc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,7 +9,7 @@
         <!--Meme Editor-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MemeEditor" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditor" id="vXZ-lx-hvc" customClass="MemeEditor" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -86,7 +86,11 @@
                                                 <action selector="shareMeme:" destination="vXZ-lx-hvc" id="iyN-sT-Twm"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="YnZ-PS-AJX"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="YnZ-PS-AJX">
+                                            <connections>
+                                                <action selector="cancelMeme" destination="vXZ-lx-hvc" id="t49-16-OX4"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -192,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379.5" y="337"/>
+            <point key="canvasLocation" x="4117.5" y="381"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CQX-07-BR6">
@@ -216,7 +220,7 @@
         <!--Sent Memes-->
         <scene sceneID="Gy2-cg-Xvd">
             <objects>
-                <tableViewController id="j0K-37-0Nu" sceneMemberID="viewController">
+                <tableViewController id="j0K-37-0Nu" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WV8-pI-D0I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,7 +239,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Zg1-WM-gBG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="newMemeFromTableView" id="boV-aC-JlB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIt-fw-Xwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,7 +314,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="5pa-uI-y61">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="newMemeFromCollectionView" id="7pk-BN-Nal"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-mV-jHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,4 +330,7 @@
         <image name="TabBarCollectionBadge" width="30" height="30"/>
         <image name="TabBarTableBadge" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="boV-aC-JlB"/>
+    </inferredMetricsTieBreakers>
 </document>
