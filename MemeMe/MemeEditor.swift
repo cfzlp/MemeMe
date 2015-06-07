@@ -77,6 +77,10 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in
             if completed {
                 self.saveMeme()
+                self.dismissViewControllerAnimated(true, completion: nil)
+//                // present the tab bar view controller to show shared memes
+//                let tabBarVC: UITabBarController  = self.storyboard?.instantiateViewControllerWithIdentifier("sharedMemesVC") as! UITabBarController
+//                self.presentViewController(tabBarVC, animated: true, completion: nil)
             }
             activityVC.dismissViewControllerAnimated(true, completion: nil)
         }

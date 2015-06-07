@@ -201,7 +201,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CQX-07-BR6">
             <objects>
-                <tabBarController id="BPI-Vm-SSc" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="sharedMemesVC" id="BPI-Vm-SSc" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="d04-55-OpH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -226,10 +226,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qBO-jT-2kI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="n4S-J4-wfY" detailTextLabel="FqR-ox-lTi" style="IBUITableViewCellStyleSubtitle" id="qBO-jT-2kI">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBO-jT-2kI" id="cEO-JV-ODX">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n4S-J4-wfY">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FqR-ox-lTi">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -239,11 +259,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Zg1-WM-gBG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="newMemeFromTableView" id="boV-aC-JlB"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIt-fw-Xwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,11 +330,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="5pa-uI-y61">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="newMemeFromCollectionView" id="7pk-BN-Nal"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ"/>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-mV-jHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +342,4 @@
         <image name="TabBarCollectionBadge" width="30" height="30"/>
         <image name="TabBarTableBadge" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="boV-aC-JlB"/>
-    </inferredMetricsTieBreakers>
 </document>
