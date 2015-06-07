@@ -188,6 +188,7 @@
                     <connections>
                         <outlet property="bottomTextField" destination="hpk-uw-2Hg" id="C2A-aF-MNA"/>
                         <outlet property="cameraButton" destination="Sdz-Gz-Xny" id="l2k-Tn-Dah"/>
+                        <outlet property="cancelButton" destination="YnZ-PS-AJX" id="B4I-vt-NcF"/>
                         <outlet property="imageView" destination="hdA-7P-mi9" id="JP4-Q2-dkI"/>
                         <outlet property="shareMemeButton" destination="7hG-Bk-l8Y" id="BJv-7h-B8t"/>
                         <outlet property="toolbar" destination="bdL-sB-SBU" id="A69-Hg-KR9"/>
@@ -221,12 +222,12 @@
         <scene sceneID="Gy2-cg-Xvd">
             <objects>
                 <tableViewController id="j0K-37-0Nu" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WV8-pI-D0I">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="WV8-pI-D0I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="n4S-J4-wfY" detailTextLabel="FqR-ox-lTi" style="IBUITableViewCellStyleSubtitle" id="qBO-jT-2kI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="n4S-J4-wfY" rowHeight="120" style="IBUITableViewCellStyleDefault" id="qBO-jT-2kI">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBO-jT-2kI" id="cEO-JV-ODX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -240,15 +241,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FqR-ox-lTi">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            </variation>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -259,7 +251,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Zg1-WM-gBG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ILF-wB-ZQL">
+                            <connections>
+                                <action selector="createNewMeme:" destination="j0K-37-0Nu" id="Zxz-dN-BOD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIt-fw-Xwi" userLabel="First Responder" sceneMemberID="firstResponder"/>

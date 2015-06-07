@@ -16,6 +16,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareMemeButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,14 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         self.shareMemeButton.enabled = false
+
+        // if there are no previously shared memes, do not allow viewing the table/collection
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if delegate.memes.count == 0 {
+            self.cancelButton.enabled = false
+        } else {
+            self.cancelButton.enabled = true
+        }
         
         // Set text attributes
         let memeTextAttributes = [
