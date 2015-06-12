@@ -57,8 +57,6 @@ class MemeTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return self.memes.count
     }
 
@@ -73,16 +71,13 @@ class MemeTableViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table view delegate
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailVC: SentMemeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SentMeme") as! SentMemeViewController
+        detailVC.sentMeme = self.memes[indexPath.row]
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
-    */
 
 }

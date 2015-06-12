@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4117.5" y="381"/>
+            <point key="canvasLocation" x="3928.5" y="-32"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CQX-07-BR6">
@@ -332,6 +332,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-mV-jHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3096" y="706"/>
+        </scene>
+        <!--Sent Meme View Controller-->
+        <scene sceneID="UYq-17-uQn">
+            <objects>
+                <viewController storyboardIdentifier="SentMeme" id="Tmm-zM-L4N" customClass="SentMemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b0t-Cu-SEH"/>
+                        <viewControllerLayoutGuide type="bottom" id="erH-C1-hvP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s4t-u0-YXh">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbd-xL-t7U">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="qbd-xL-t7U" secondAttribute="trailing" constant="-16" id="D0T-X3-3GN"/>
+                            <constraint firstItem="erH-C1-hvP" firstAttribute="top" secondItem="qbd-xL-t7U" secondAttribute="bottom" id="J7g-sy-32r"/>
+                            <constraint firstItem="qbd-xL-t7U" firstAttribute="top" secondItem="s4t-u0-YXh" secondAttribute="topMargin" id="Zaw-q5-VqS"/>
+                            <constraint firstItem="qbd-xL-t7U" firstAttribute="leading" secondItem="s4t-u0-YXh" secondAttribute="leadingMargin" constant="-16" id="bKh-zG-NwB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qbd-xL-t7U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="D0T-X3-3GN"/>
+                                <exclude reference="Zaw-q5-VqS"/>
+                                <exclude reference="bKh-zG-NwB"/>
+                                <exclude reference="J7g-sy-32r"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qbd-xL-t7U"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="D0T-X3-3GN"/>
+                                <include reference="Zaw-q5-VqS"/>
+                                <include reference="bKh-zG-NwB"/>
+                                <include reference="J7g-sy-32r"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="sentMemeView" destination="qbd-xL-t7U" id="oF6-fC-fZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9b-ti-03v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3928.5" y="706"/>
         </scene>
     </scenes>
     <resources>
