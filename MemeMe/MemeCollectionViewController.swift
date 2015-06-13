@@ -8,17 +8,8 @@
 
 import UIKit
 
-let reuseIdentifier = "MemeItem"
-
 class MemeCollectionViewController: UICollectionViewController {
     var memes = [Meme]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-    }
     
     override func viewWillAppear(animated: Bool) {
         // Get a copy of the data model
@@ -41,22 +32,18 @@ class MemeCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
-    }
-
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
         return self.memes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        let meme = self.memes[indexPath.row]
+        
+        cell.topTextLabel.text = meme.topText
+        cell.bottomTextLabel.text = meme.bottomText
+        cell.memeImageView.image = meme.memedImage
+        
         return cell
     }
 

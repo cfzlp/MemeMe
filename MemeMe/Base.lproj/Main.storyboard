@@ -305,21 +305,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dJU-ml-7NH">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="103" height="112"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeItem" id="M02-KA-ajV">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="vci-8M-P1j" customClass="MemeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="103" height="112"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ca7-H4-aPV">
+                                            <rect key="frame" x="23" y="28" width="60" height="48"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BottomText" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZa-SQ-phF">
+                                            <rect key="frame" x="3" y="75" width="100" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TopText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0K-2N-s8O">
+                                            <rect key="frame" x="3" y="8" width="100" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <size key="customSize" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstItem="Ca7-H4-aPV" firstAttribute="leading" secondItem="vci-8M-P1j" secondAttribute="leadingMargin" constant="15" id="8OO-0F-eH8"/>
+                                    <constraint firstItem="M0K-2N-s8O" firstAttribute="top" secondItem="vci-8M-P1j" secondAttribute="topMargin" id="AcI-4K-1LF"/>
+                                    <constraint firstItem="cZa-SQ-phF" firstAttribute="leading" secondItem="M0K-2N-s8O" secondAttribute="leading" id="Afk-3O-hPf"/>
+                                    <constraint firstItem="Ca7-H4-aPV" firstAttribute="centerX" secondItem="vci-8M-P1j" secondAttribute="centerX" id="BYy-j4-P7q"/>
+                                    <constraint firstItem="cZa-SQ-phF" firstAttribute="top" secondItem="M0K-2N-s8O" secondAttribute="bottom" constant="47" id="CVb-56-2QA"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Ca7-H4-aPV" secondAttribute="bottom" constant="20" id="Dh5-F6-1cB"/>
+                                    <constraint firstItem="Ca7-H4-aPV" firstAttribute="centerX" secondItem="M0K-2N-s8O" secondAttribute="centerX" id="XKh-MN-uI1">
+                                        <variation key="widthClass=compact" constant="-1.5"/>
+                                    </constraint>
+                                    <constraint firstItem="cZa-SQ-phF" firstAttribute="trailing" secondItem="M0K-2N-s8O" secondAttribute="trailing" id="Ybw-z0-apB"/>
+                                    <constraint firstItem="Ca7-H4-aPV" firstAttribute="centerY" secondItem="vci-8M-P1j" secondAttribute="centerY" id="d9E-3v-HmX"/>
+                                    <constraint firstAttribute="bottom" secondItem="cZa-SQ-phF" secondAttribute="bottom" id="eX6-cG-ymU"/>
+                                    <constraint firstItem="M0K-2N-s8O" firstAttribute="leading" secondItem="vci-8M-P1j" secondAttribute="leadingMargin" constant="-5" id="hot-8H-L2A"/>
+                                    <constraint firstItem="Ca7-H4-aPV" firstAttribute="top" secondItem="M0K-2N-s8O" secondAttribute="bottom" id="wHe-sR-rmT"/>
+                                </constraints>
+                                <size key="customSize" width="103" height="112"/>
+                                <connections>
+                                    <outlet property="bottomTextLabel" destination="cZa-SQ-phF" id="mQn-pe-3YV"/>
+                                    <outlet property="memeImageView" destination="Ca7-H4-aPV" id="GOs-hq-4cr"/>
+                                    <outlet property="topTextLabel" destination="M0K-2N-s8O" id="ySR-Lb-Nbz"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
