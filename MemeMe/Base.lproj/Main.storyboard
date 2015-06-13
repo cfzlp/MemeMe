@@ -235,7 +235,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n4S-J4-wfY">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -299,10 +299,11 @@
         <!--Sent Memes-->
         <scene sceneID="2c9-IM-jyL">
             <objects>
-                <collectionViewController id="zYB-jA-6b7" sceneMemberID="viewController">
+                <collectionViewController id="zYB-jA-6b7" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4wq-pz-kwu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dJU-ml-7NH">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -310,14 +311,15 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="M02-KA-ajV">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeItem" id="M02-KA-ajV">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <size key="customSize" width="100" height="100"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -342,6 +344,7 @@
                         <viewControllerLayoutGuide type="bottom" id="erH-C1-hvP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s4t-u0-YXh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbd-xL-t7U">
@@ -360,10 +363,10 @@
                                 <exclude reference="qbd-xL-t7U"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="J7g-sy-32r"/>
                                 <exclude reference="D0T-X3-3GN"/>
                                 <exclude reference="Zaw-q5-VqS"/>
                                 <exclude reference="bKh-zG-NwB"/>
-                                <exclude reference="J7g-sy-32r"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -371,10 +374,10 @@
                                 <include reference="qbd-xL-t7U"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="J7g-sy-32r"/>
                                 <include reference="D0T-X3-3GN"/>
                                 <include reference="Zaw-q5-VqS"/>
                                 <include reference="bKh-zG-NwB"/>
-                                <include reference="J7g-sy-32r"/>
                             </mask>
                         </variation>
                     </view>

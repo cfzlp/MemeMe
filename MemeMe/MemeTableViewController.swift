@@ -10,20 +10,8 @@ import UIKit
 
 
 class MemeTableViewController: UITableViewController {
-
-    // TODO: should this not be initialized here? what happens when I initialize and then assign?
     var memes = [Meme]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
+        
     override func viewWillAppear(animated: Bool) {
         // Get a copy of the data model
         let object = UIApplication.sharedApplication().delegate
