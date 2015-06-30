@@ -17,6 +17,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareMemeButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +109,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func generateMemedImage() -> UIImage {
         self.toolbar.hidden = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -118,8 +119,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.toolbar.hidden = true
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.toolbar.hidden = false
+        self.navigationBar.hidden = false
         
         return memedImage
     }
