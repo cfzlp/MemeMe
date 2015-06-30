@@ -145,7 +145,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     // MARK: UITextFieldDelegate methods
     func textFieldDidBeginEditing(textField: UITextField) {
         // FIXME: what if the user actually wants TOP or BOTTOM to be shown?
-        // Using placeholder text in the initial setup would fix this
+        // Would using placeholder text in the initial setup fix this?
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
