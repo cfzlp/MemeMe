@@ -13,6 +13,8 @@ class MemeTableViewController: UITableViewController {
     var memes = [Meme]()
         
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Get a copy of the data model
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -21,16 +23,13 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // If there are no sent memes, create a new one
         if (self.memes.count == 0) {
             let newMemeVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditor
             self.presentViewController(newMemeVC, animated: true, completion: nil)
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func createNewMeme(sender: UIBarButtonItem) {
