@@ -58,7 +58,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-uw-2Hg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-uw-2Hg">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -97,7 +97,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyW-7M-Ddy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyW-7M-Ddy">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -370,7 +370,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="5pa-uI-y61">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dmq-LY-bnQ">
+                            <connections>
+                                <action selector="createNewMeme:" destination="zYB-jA-6b7" id="s5a-i1-CHN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-mV-jHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -397,7 +401,9 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qbd-xL-t7U" secondAttribute="trailing" constant="-16" id="D0T-X3-3GN"/>
                             <constraint firstItem="erH-C1-hvP" firstAttribute="top" secondItem="qbd-xL-t7U" secondAttribute="bottom" id="J7g-sy-32r"/>
-                            <constraint firstItem="qbd-xL-t7U" firstAttribute="top" secondItem="s4t-u0-YXh" secondAttribute="topMargin" id="Zaw-q5-VqS"/>
+                            <constraint firstItem="qbd-xL-t7U" firstAttribute="top" secondItem="s4t-u0-YXh" secondAttribute="topMargin" id="Zaw-q5-VqS">
+                                <variation key="widthClass=compact" constant="28"/>
+                            </constraint>
                             <constraint firstItem="qbd-xL-t7U" firstAttribute="leading" secondItem="s4t-u0-YXh" secondAttribute="leadingMargin" constant="-16" id="bKh-zG-NwB"/>
                         </constraints>
                         <variation key="default">

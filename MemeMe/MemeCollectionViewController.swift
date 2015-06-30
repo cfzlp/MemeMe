@@ -19,7 +19,11 @@ class MemeCollectionViewController: UICollectionViewController {
         self.collectionView?.reloadData()
     }
 
-
+    @IBAction func createNewMeme(sender: UIBarButtonItem) {
+        let newMemeVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditor
+        self.presentViewController(newMemeVC, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
