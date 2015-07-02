@@ -8,8 +8,8 @@
 
 import UIKit
 
+// Class for custom cell in the Sent Meme collection view controller
 class MemeCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var topTextLabel: UILabel!
     @IBOutlet weak var bottomTextLabel: UILabel!
     @IBOutlet weak var memeImageView: UIImageView!

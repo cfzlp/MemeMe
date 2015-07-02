@@ -8,6 +8,7 @@
 
 import UIKit
 
+// View controller for the Meme Detail view
 class SentMemeViewController: UIViewController {
 
     @IBOutlet weak var sentMemeView: UIImageView!

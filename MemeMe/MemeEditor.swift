@@ -24,16 +24,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
 
         // Do initial setup
         self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
         self.shareMemeButton.enabled = false
-
-        // if there are no previously shared memes, do not allow viewing the table/collection
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if delegate.memes.count == 0 {
-            self.cancelButton.enabled = false
-        } else {
-            self.cancelButton.enabled = true
-        }
         
         // Set text attributes
         let memeTextAttributes = [
@@ -45,7 +36,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.topTextField.defaultTextAttributes = memeTextAttributes
         self.bottomTextField.defaultTextAttributes = memeTextAttributes
 
-        // Why not do it with placeholder text?
+        // Set default text
         self.topTextField.text = "TOP"
         self.topTextField.textAlignment = NSTextAlignment.Center
         self.topTextField.delegate = self
@@ -83,6 +74,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let imageToShare = generateMemedImage()
         
         // instantiate, configure and present an activity VC to share the meme
+        // if the meme is shared, save it
         let activityVC = UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
         activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in
             if completed {
@@ -95,19 +87,20 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     func saveMeme() {
-        // Create meme
+        // Create meme data object
         let memedImage = generateMemedImage()
         var meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, image: imageView.image!, memedImage: memedImage)
         
-        // Add meme to the memes array in the Application Delegate
+        // Add meme data to the memes array in the Application Delegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
         
-        NSLog("Meme has been added to global array")
+        NSLog("Meme added to data model")
     }
     
     func generateMemedImage() -> UIImage {
+        // Do not capture navigation and tool bars in the meme image
         self.toolbar.hidden = true
         self.navigationBar.hidden = true
         
@@ -130,6 +123,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     // MARK: UIImagePickerControllerDelegate methods
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageView.image = image
@@ -143,9 +137,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     // MARK: UITextFieldDelegate methods
+    
     func textFieldDidBeginEditing(textField: UITextField) {
-        // FIXME: what if the user actually wants TOP or BOTTOM to be shown?
-        // Would using placeholder text in the initial setup fix this?
         if textField.text == "TOP" || textField.text == "BOTTOM" {
             textField.text = ""
         }
@@ -157,6 +150,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     // MARK: accommodate keyboard methods
+    
     func subscribeToKeyboardNotifications() {
         // We want to know when the keyboard will show
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:"    , name: UIKeyboardWillShowNotification, object: nil)
