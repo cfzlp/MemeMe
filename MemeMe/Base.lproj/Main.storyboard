@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BPI-Vm-SSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BPI-Vm-SSc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -126,20 +126,20 @@
                                 <exclude reference="qyW-7M-Ddy"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4A7-9z-7qd"/>
-                                <exclude reference="RS2-rk-Odm"/>
-                                <exclude reference="dUM-KM-bej"/>
-                                <exclude reference="ZEZ-Ld-Ldn"/>
-                                <exclude reference="bkm-zp-GEu"/>
-                                <exclude reference="oKd-M0-mPv"/>
-                                <exclude reference="2IY-zx-7Zo"/>
-                                <exclude reference="88p-J9-IU5"/>
-                                <exclude reference="KJi-RN-OiF"/>
-                                <exclude reference="nr4-nf-tU2"/>
-                                <exclude reference="v1U-jJ-0aN"/>
                                 <exclude reference="0dS-hn-RGG"/>
                                 <exclude reference="SRs-pP-l3F"/>
                                 <exclude reference="aVl-D2-mQA"/>
+                                <exclude reference="KJi-RN-OiF"/>
+                                <exclude reference="2IY-zx-7Zo"/>
+                                <exclude reference="88p-J9-IU5"/>
+                                <exclude reference="nr4-nf-tU2"/>
+                                <exclude reference="v1U-jJ-0aN"/>
+                                <exclude reference="ZEZ-Ld-Ldn"/>
+                                <exclude reference="bkm-zp-GEu"/>
+                                <exclude reference="oKd-M0-mPv"/>
+                                <exclude reference="4A7-9z-7qd"/>
+                                <exclude reference="RS2-rk-Odm"/>
+                                <exclude reference="dUM-KM-bej"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -151,20 +151,20 @@
                                 <include reference="qyW-7M-Ddy"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4A7-9z-7qd"/>
-                                <include reference="RS2-rk-Odm"/>
-                                <include reference="dUM-KM-bej"/>
-                                <include reference="ZEZ-Ld-Ldn"/>
-                                <include reference="bkm-zp-GEu"/>
-                                <include reference="oKd-M0-mPv"/>
-                                <include reference="2IY-zx-7Zo"/>
-                                <include reference="88p-J9-IU5"/>
-                                <include reference="KJi-RN-OiF"/>
-                                <include reference="nr4-nf-tU2"/>
-                                <include reference="v1U-jJ-0aN"/>
                                 <include reference="0dS-hn-RGG"/>
                                 <include reference="SRs-pP-l3F"/>
                                 <include reference="aVl-D2-mQA"/>
+                                <include reference="KJi-RN-OiF"/>
+                                <include reference="2IY-zx-7Zo"/>
+                                <include reference="88p-J9-IU5"/>
+                                <include reference="nr4-nf-tU2"/>
+                                <include reference="v1U-jJ-0aN"/>
+                                <include reference="ZEZ-Ld-Ldn"/>
+                                <include reference="bkm-zp-GEu"/>
+                                <include reference="oKd-M0-mPv"/>
+                                <include reference="4A7-9z-7qd"/>
+                                <include reference="RS2-rk-Odm"/>
+                                <include reference="dUM-KM-bej"/>
                             </mask>
                         </variation>
                     </view>
@@ -389,7 +389,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qbd-xL-t7U" secondAttribute="trailing" constant="-16" id="D0T-X3-3GN"/>
                             <constraint firstItem="erH-C1-hvP" firstAttribute="top" secondItem="qbd-xL-t7U" secondAttribute="bottom" id="J7g-sy-32r"/>
                             <constraint firstItem="qbd-xL-t7U" firstAttribute="top" secondItem="s4t-u0-YXh" secondAttribute="topMargin" id="Zaw-q5-VqS">
-                                <variation key="widthClass=compact" constant="28"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="qbd-xL-t7U" firstAttribute="leading" secondItem="s4t-u0-YXh" secondAttribute="leadingMargin" constant="-16" id="bKh-zG-NwB"/>
                         </constraints>
