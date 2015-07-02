@@ -22,16 +22,6 @@ class MemeTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // If there are no sent memes, create a new one
-        if (self.memes.count == 0) {
-            let newMemeVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditor
-            self.presentViewController(newMemeVC, animated: true, completion: nil)
-        }
-    }
-
     @IBAction func createNewMeme(sender: UIBarButtonItem) {
         let newMemeVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditor
         self.presentViewController(newMemeVC, animated: true, completion: nil)
